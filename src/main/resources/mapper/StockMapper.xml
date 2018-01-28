@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="anyeight.dao.StockMapper">
+    <resultMap id="StockBaseMap" type="anyeight.po.StockPO">
+        <id column="date" jdbcType="DATE" property="date"/>
+        <result column="open" jdbcType="DOUBLE" property="open"/>
+        <result column="high" jdbcType="DOUBLE" property="high"/>
+        <result column="close" jdbcType="DOUBLE" property="close"/>
+        <result column="low" jdbcType="DOUBLE" property="low"/>
+        <result column="volume" jdbcType="DOUBLE" property="volume"/>
+        <result column="price_change" jdbcType="DOUBLE" property="price_change"/>
+        <result column="p_change" jdbcType="DOUBLE" property="p_change"/>
+        <result column="ma5" jdbcType="DOUBLE" property="ma5"/>
+        <result column="ma10" jdbcType="DOUBLE" property="ma10"/>
+        <result column="ma20" jdbcType="DOUBLE" property="ma20"/>
+        <result column="v_ma5" jdbcType="DOUBLE" property="v_ma5"/>
+        <result column="v_ma10" jdbcType="DOUBLE" property="v_ma10"/>
+        <result column="v_ma20" jdbcType="DOUBLE" property="v_ma20"/>
+    </resultMap>
+
+    <select id="getStockId" parameterType="String" resultType="String">
+        SELECT name
+        FROM stock
+        WHERE id = #{str}
+    </select>
+
+    <select id="getOneStock" parameterType="anyeight.model.StockBetweenTwoCan" resultMap="StockBaseMap">
+        SELECT *
+        FROM stock_000001
+        WHERE date &gt;= #{dayBegin, jdbcType = DATE}
+        and date &lt;= #{dayEnd, jdbcType = DATE}
+    </select>
+
+</mapper>

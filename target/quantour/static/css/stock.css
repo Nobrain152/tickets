@@ -1,0 +1,30 @@
+.stock-info{
+    padding:10px 20px;
+}
+.time{
+    color:#92a0ac;
+    font-size:16px;
+    font-weight:400;
+}
+.price{
+    color:#f24957;
+    font-size:20px;
+}
+.price strong{
+    font-size:54px;
+    line-hight:56px;
+    margin-right:20px;
+}
+.stockContent{
+    margin-top:7px;
+    border-top:#e9edf0 solid 1px;
+    padding: 14px 0;
+}
+.stockContent dl{
+    width: 9%;
+    float: left;
+}
+.clear{
+    clear:both;
+}
+
